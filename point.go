@@ -31,6 +31,22 @@ func NewPointf(x, y float64) *Pointf {
 	return &Pointf{x, y}
 }
 
+func (p *Pointf) XY() (float64, float64) {
+	return p.x, p.y
+}
+
+func (p *Pointi) XY() (int, int) {
+	return p.x, p.y
+}
+
+func (p *Pointf) Set(x, y float64) {
+	p.x, p.y = x, y
+}
+
+func (p *Pointi) Set(x, y int) {
+	p.x, p.y = x, y
+}
+
 // --- Add ---
 
 // Add and return

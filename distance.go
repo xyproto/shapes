@@ -49,22 +49,22 @@ func (p *Pointf) MustNormalize() {
 	p.MustDiv(Newf(p.Length()))
 }
 
-// Normalize, return an error if the length is zero
-func (p *Pointi) Normalize2() (*Pointi, error) {
+// Normalizei, return an error if the length is zero
+func (p *Pointi) Normalizei() (*Pointi, error) {
 	return Divi(p, Newi(p.Length()))
 }
 
-// Normalize, return an error if the length is zero
-func (p *Pointi) MustNormalize2() *Pointi {
+// Normalize, panic if the length is zero
+func (p *Pointi) MustNormalizei() *Pointi {
 	return MustDivi(p, Newi(p.Length()))
 }
 
-// Normalize, return an error if the length is zero
-func (p *Pointf) Normalize2() (*Pointf, error) {
+// Normalizef, return an error if the length is zero
+func (p *Pointf) Normalizef() (*Pointf, error) {
 	return Divf(p, Newf(p.Length()))
 }
 
-// Normalize, return an error if the length is zero
-func (p *Pointf) MustNormalize2() *Pointf {
+// Normalize, panic if the length is zero
+func (p *Pointf) MustNormalizef() *Pointf {
 	return MustDivf(p, Newf(p.Length()))
 }
