@@ -18,6 +18,14 @@ func NewTrianglef(x1, y1, x2, y2, x3, y3 float64) *Tri {
 	return &Tri{NewPointf(x1, y1), NewPointf(x2, y2), NewPointf(x3, y3)}
 }
 
+func (t *Tri) Points() *PointCollection {
+	pc := PointCollection(make([]Point, 3))
+	pc[0] = *(t.p1)
+	pc[1] = *(t.p2)
+	pc[2] = *(t.p3)
+	return &pc
+}
+
 func Absi(x int) int {
 	if x < 0 {
 		return -x

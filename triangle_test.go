@@ -28,3 +28,10 @@ func ExampleTri_AngleFromCenterTo() {
 	// Output:
 	// 270
 }
+
+func ExampleTri_Points() {
+	t := NewTrianglef(0, 0.5, 1, 2.5, 2, 0.7)
+	fmt.Println(t.Points())
+	// Output:
+	// (0/2, 1/2), (1, 5/2), (2, 7/10)
+}
