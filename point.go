@@ -3,7 +3,6 @@ package shapes
 import (
 	"errors"
 	"fmt"
-	"math"
 
 	"github.com/xyproto/num"
 )
@@ -205,27 +204,44 @@ func (p *Point) IsZero() bool {
 
 // --- Rotation ---
 
-func (p *Point) RotateAround(c *Point, rad float64) *Point {
-	sin := math.Sin(rad)
-	cos := math.Cos(rad)
+func (p *Point) RotateAround(c *Point, a *Angle) *Point {
+	// Create a new *num.Frac
+	angle := num.NewFromFloat64(a.Rad(), 1000)
 
-	cx := c.x.Float64()
-	cy := c.y.Float64()
+	cos := num.Cos(angle)
+	sin := num.Sin(angle)
 
 	// Translate the point
-	px := p.x.Float64() - cx
-	py := p.y.Float64() - cy
+	px := num.Sub(p.x, c.x)
+	py := num.Sub(p.y, c.y)
 
 	// Rotate the point
-	xnew := px*cos - py*sin
-	ynew := px*sin + py*cos
+	pxcos, err := num.Mul(px, cos)
+	if err != nil {
+		panic(err)
+	}
+	pysin, err := num.Mul(py, sin)
+	if err != nil {
+		panic(err)
+	}
+	pxsin, err := num.Mul(px, sin)
+	if err != nil {
+		panic(err)
+	}
+	pycos, err := num.Mul(py, cos)
+	if err != nil {
+		panic(err)
+	}
+
+	xnew := num.Sub(pxcos, pysin)
+	ynew := num.Add(pxsin, pycos)
 
 	// Translate the point back
-	px = xnew + cx
-	py = ynew + cy
+	px = num.Add(xnew, c.x)
+	py = num.Add(ynew, c.y)
 
 	// Return the new coordinates
-	return NewPointf(px, py)
+	return &Point{px, py}
 }
 
 func (p *Point) CloseTo(x, y int, rounded bool) bool {

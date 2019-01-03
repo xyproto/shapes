@@ -89,23 +89,14 @@ func (t *Tri) Areai() int {
 // to the given point, as if the center of the triangle is the center
 // of the unit circle.
 func (t *Tri) AngleFromCenterTo(p *Point) float64 {
-	//center := t.Center()
-	//// Translate and normalize point, so that the center is 0,0
-	//x := num.Sub(p.x, center.x)
-	//y := num.Sub(p.y, center.y)
-	//tp := &Point{x, y}
-	//tp.Normalize()
-	// Return the angle from (0,0) to the translated normalized point
-	//return Anglef(Zero, tp)
-
 	// Return the angle from the center to the given point
 	return Anglef(t.Center(), p)
 }
 
 // Rotate (and modify) the current triangle, given an angle in radians.
 // TODO: Take an angle as a *num.Frac, since it can contain PI as part of the fraction.
-func (t *Tri) RotateAround(rad float64, center *Point) *Tri {
-	return &Tri{t.p1.RotateAround(center, rad), t.p2.RotateAround(center, rad), t.p3.RotateAround(center, rad)}
+func (t *Tri) RotateAround(a *Angle, center *Point) *Tri {
+	return &Tri{t.p1.RotateAround(center, a), t.p2.RotateAround(center, a), t.p3.RotateAround(center, a)}
 }
 
 // Draw the triangle points, using ASCII graphics
