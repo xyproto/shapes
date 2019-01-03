@@ -5,7 +5,7 @@ import (
 )
 
 func ExamplePointCollection() {
-	p1 := NewPointi(1, 2)
+	p1 := NewPoint(1, 2)
 	p2 := NewPointf(3.1, 4.3)
 
 	fmt.Println("p1", p1)

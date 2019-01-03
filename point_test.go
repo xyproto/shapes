@@ -5,7 +5,7 @@ import (
 )
 
 func ExampleNewPointi() {
-	p := NewPointi(1, 2)
+	p := NewPoint(1, 2)
 	fmt.Println(p)
 	// Output:
 	// (1, 2)

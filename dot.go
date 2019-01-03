@@ -1,27 +1,36 @@
 package shapes
 
+import (
+	"github.com/xyproto/num"
+)
+
 // --- Dot product ---
 
-func Dotf(a, b *Pointf) float64 {
-	return a.x*b.x + a.y*b.y
+func Dot(a, b *Point) *num.Frac {
+	// a.x*b.x + a.y*b.y
+	axbx, err := num.Mul(a.x, b.x)
+	if err != nil {
+		panic(err)
+	}
+	ayby, err := num.Mul(a.y, b.y)
+	if err != nil {
+		panic(err)
+	}
+	return num.Add(axbx, ayby)
 }
 
-func Dotif(a, b *Pointi) float64 {
-	return float64(a.x*b.x + a.y*b.y)
+func Dotf(a, b *Point) float64 {
+	return Dot(a, b).Float64()
 }
 
-func Doti(a, b *Pointi) int {
-	return a.x*b.x + a.y*b.y
+func Doti(a, b *Point) int {
+	return Dot(a, b).Int()
 }
 
-func (a *Pointf) Dot(b *Pointf) float64 {
-	return a.x*b.x + a.y*b.y
+func (a *Point) Dotf(b *Point) float64 {
+	return Dot(a, b).Float64()
 }
 
-func (a *Pointi) Dotf(b *Pointi) float64 {
-	return float64(a.x*b.x + a.y*b.y)
-}
-
-func (a *Pointi) Dot(b *Pointi) int {
-	return a.x*b.x + a.y*b.y
+func (a *Point) Doti(b *Point) int {
+	return Dot(a, b).Int()
 }
