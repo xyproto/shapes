@@ -1,2 +1,2 @@
-# github.com/xyproto/num v0.0.0-20190103162125-9d7a8bcc9b9e
+# github.com/xyproto/num v0.0.0-20190103172534-fbc3410ad527
 github.com/xyproto/num

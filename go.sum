@@ -1,2 +1,4 @@
 github.com/xyproto/num v0.0.0-20190103162125-9d7a8bcc9b9e h1:p7BPhykaNoUWro3QT1WJjKvw9h0MCJ62lP8jIDOrxmg=
 github.com/xyproto/num v0.0.0-20190103162125-9d7a8bcc9b9e/go.mod h1:nv/ax4ovFwpmqAouF7MdO0KbwClk5tBG+oHyGX4a+tA=
+github.com/xyproto/num v0.0.0-20190103172534-fbc3410ad527 h1:Gu/tG7pGZiehalGXipEQkQd2Au+dztP95YftiSRH2o8=
+github.com/xyproto/num v0.0.0-20190103172534-fbc3410ad527/go.mod h1:nv/ax4ovFwpmqAouF7MdO0KbwClk5tBG+oHyGX4a+tA=

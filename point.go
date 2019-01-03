@@ -3,6 +3,7 @@ package shapes
 import (
 	"errors"
 	"fmt"
+	"math"
 
 	"github.com/xyproto/num"
 )
@@ -31,6 +32,10 @@ func NewPointn(x, y *num.Frac) *Point {
 	return &Point{x, y}
 }
 
+func NewPointf(x, y float64) *Point {
+	return NewPointFromFloat(x, y, num.DefaultMaxIterations)
+}
+
 func NewPointFromInt(x, y int) *Point {
 	return &Point{num.NewFromInt(x), num.NewFromInt(y)}
 }
@@ -41,8 +46,8 @@ func NewPointFromFloat(x, y float64, maxIterations int) *Point {
 	return &Point{xn, yn}
 }
 
-func NewPointf(x, y float64) *Point {
-	return NewPointFromFloat(x, y, num.DefaultMaxIterations)
+func (p *Point) Copy() *Point {
+	return &Point{p.x.Copy(), p.y.Copy()}
 }
 
 func (p *Point) XY() (*num.Frac, *num.Frac) {
@@ -192,8 +197,37 @@ func (p *Point) Stringi() string {
 	return fmt.Sprintf("(%d, %d)", p.x.Int(), p.y.Int())
 }
 
-// --- Zero checks ---
+// --- Zero check ---
 
 func (p *Point) IsZero() bool {
 	return p.x.IsZero() && p.y.IsZero()
+}
+
+// --- Rotation ---
+
+func (p *Point) RotateAround(c *Point, rad float64) *Point {
+	sin := math.Sin(rad)
+	cos := math.Cos(rad)
+
+	cx := c.x.Float64()
+	cy := c.y.Float64()
+
+	// Translate the point
+	px := p.x.Float64() - cx
+	py := p.y.Float64() - cy
+
+	// Rotate the point
+	xnew := px*cos - py*sin
+	ynew := px*sin + py*cos
+
+	// Translate the point back
+	px = xnew + cx
+	py = ynew + cy
+
+	// Return the new coordinates
+	return NewPointf(px, py)
+}
+
+func (p *Point) CloseTo(x, y int) bool {
+	return p.x.Int() == x && p.y.Int() == y
 }

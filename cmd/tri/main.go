@@ -1,18 +1,3 @@
-# shapes
-
-Deal with points and triangles.
-
-The goal is not performance, since all numbers are stored as fractions.
-
-However, it is easy to add a triangle and get the coordinates as human-readable fractions.
-
-It's also easy to rotate triangles.
-
-![screenshot](img/screenshot.png)
-
-Here is an example program:
-
-```go
 package main
 
 import (
@@ -84,9 +69,3 @@ func main() {
 		time.Sleep(10 * time.Millisecond)
 	}
 }
-```
-
-## General Info
-
-* License: MIT
-* Version: 0.0.0

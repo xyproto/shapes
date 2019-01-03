@@ -4,6 +4,8 @@ import (
 	"strings"
 )
 
+var FloatOutput bool
+
 type PointCollection []Point
 
 func NewPointCollection() *PointCollection {
@@ -28,7 +30,11 @@ func (pc *PointCollection) String() string {
 		if i > 0 {
 			sb.WriteString(", ")
 		}
-		sb.WriteString(p.String())
+		if FloatOutput {
+			sb.WriteString(p.Stringf())
+		} else {
+			sb.WriteString(p.String())
+		}
 	}
 	return sb.String()
 }
