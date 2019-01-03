@@ -36,7 +36,7 @@ func ExampleTri_Points() {
 	// (0, 1/2), (1, 5/2), (7/10, 2)
 }
 
-func ExampleTri_Rotate() {
+func ExampleTri_RotateAround() {
 	t := NewTriangle(0, 0, 2, 0, 2, 1)
 	center := t.Center()
 	fmt.Println(t.Points())
