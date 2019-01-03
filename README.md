@@ -2,11 +2,12 @@
 
 Deal with points and triangles.
 
-The goal is not performance, since all numbers are stored as fractions.
-
 It is possible to add a triangle and get the coordinates as human-readable fractions.
 
-Here is an example program, that animates three ASCII triangles and outputs coordinates as both floats and fractions:
+Here is a sample program, that animates three ASCII triangles and outputs coordinates as both floats and fractions:
+
+![screenshot](img/screenshot.png)
+
 
 ```go
 package main
@@ -95,10 +96,6 @@ func main() {
 	}
 }
 ```
-
-## Screenshot
-
-![screenshot](img/screenshot.png)
 
 ## General Info
 
