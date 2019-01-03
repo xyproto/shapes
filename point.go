@@ -177,8 +177,19 @@ func Newf(x float64, maxIterations int) *Point {
 
 // --- Strings ---
 
+// String outputs the coordinates as fractions
 func (p *Point) String() string {
+	return fmt.Sprintf("(%s, %s)", p.x, p.y)
+}
+
+// Stringf outputs the coordinates as floats, with 3 digits after "."
+func (p *Point) Stringf() string {
 	return fmt.Sprintf("(%.3f, %.3f)", p.x.Float64(), p.y.Float64())
+}
+
+// Stringi outputs the coordinates as ints
+func (p *Point) Stringi() string {
+	return fmt.Sprintf("(%d, %d)", p.x.Int(), p.y.Int())
 }
 
 // --- Zero checks ---

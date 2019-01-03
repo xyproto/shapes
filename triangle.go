@@ -68,18 +68,19 @@ func (t *Tri) Areai() int {
 	return t.Area().Int()
 }
 
-// Given a point, returns the angle to the center of the triangle, in radians,
-// as if the triangle was a unit circle.
-func (t *Tri) AngleToCenter(p *Point) float64 {
-	center := t.Center()
-
-	// Translate and normalize point, so that the center is 0,0
-	x := num.Sub(p.x, center.x)
-	y := num.Sub(p.y, center.y)
-	
-	tp := &Point{x, y}
-	tp.Normalize()
-
+// AngleFromCenterTo returns the angle from the center of the triangle
+// to the given point, as if the center of the triangle is the center
+// of the unit circle.
+func (t *Tri) AngleFromCenterTo(p *Point) float64 {
+	//center := t.Center()
+	//// Translate and normalize point, so that the center is 0,0
+	//x := num.Sub(p.x, center.x)
+	//y := num.Sub(p.y, center.y)
+	//tp := &Point{x, y}
+	//tp.Normalize()
 	// Return the angle from (0,0) to the translated normalized point
-	return Anglef(Zero, tp)
+	//return Anglef(Zero, tp)
+
+	// Return the angle from the center to the given point
+	return Anglef(t.Center(), p)
 }

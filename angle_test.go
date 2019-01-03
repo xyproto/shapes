@@ -20,6 +20,6 @@ func ExampleAnglef() {
 	fmt.Println(RadToDeg(math.Pi / 2.0))
 
 	// Output:
-	// 90
+	// 315
 	// 90
 }

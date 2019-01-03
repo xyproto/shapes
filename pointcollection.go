@@ -1,7 +1,6 @@
 package shapes
 
 import (
-	"fmt"
 	"strings"
 )
 
@@ -29,8 +28,7 @@ func (pc *PointCollection) String() string {
 		if i > 0 {
 			sb.WriteString(", ")
 		}
-		x, y := p.XY()
-		sb.WriteString(fmt.Sprintf("(%s, %s)", x, y))
+		sb.WriteString(p.String())
 	}
 	return sb.String()
 }
