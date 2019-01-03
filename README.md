@@ -27,6 +27,7 @@ const (
 	fromY = -4
 	toY   = 5
 
+	// Terminal codes
 	y  = "\033[1;93mo\033[0m"
 	b  = "\033[1;94m@\033[0m"
 	r  = "\033[1;31m#\033[0m"
@@ -71,8 +72,11 @@ func main() {
 		fmt.Println(t2.Draw(fromX, toX, fromY, toY, b, bg))
 		fmt.Println(t3.Draw(fromX, toX, fromY, toY, r, bg))
 
+		// Output the coordinates of the third triangle, as floats
 		shapes.FloatOutput = true
 		fmt.Println(t3.Points())
+
+		// Output the coordinates of the third triangle, as fractions
 		shapes.FloatOutput = false
 		fmt.Println(t3.Points())
 
