@@ -23,7 +23,7 @@ const (
 
 	// ASCII viewport
 	fromX = -5
-	toX   = 10
+	toX   = 20
 	fromY = -4
 	toY   = 5
 
@@ -36,8 +36,13 @@ const (
 	bg = " "
 )
 
-func clear() {
+func init() {
 	fmt.Print("\033[H\033[2J")
+}
+
+func reset() {
+	// Reset the cursor
+	fmt.Print("\033[H")
 }
 
 func main() {
@@ -66,8 +71,8 @@ func main() {
 			angle -= twoPi
 		}
 
-		// Clear the terminal
-		clear()
+		// Reset the cursor
+		reset()
 
 		// Draw three triangles, using ASCII graphics.
 		fmt.Println(t1.Draw(fromX, toX, fromY, toY, y, bg))
