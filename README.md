@@ -23,7 +23,7 @@ const (
 
 	// ASCII viewport
 	fromX = -5
-	toX   = 20
+	toX   = 10
 	fromY = -4
 	toY   = 5
 
@@ -34,6 +34,9 @@ const (
 
 	// The background character
 	bg = " "
+
+	// Terminal code for clearing the rest of the line
+	clearToEnd = "\033[K"
 )
 
 func init() {
@@ -75,17 +78,17 @@ func main() {
 		reset()
 
 		// Draw three triangles, using ASCII graphics.
-		fmt.Println(t1.Draw(fromX, toX, fromY, toY, y, bg))
-		fmt.Println(t2.Draw(fromX, toX, fromY, toY, b, bg))
-		fmt.Println(t3.Draw(fromX, toX, fromY, toY, r, bg))
+		fmt.Println(t1.Draw(fromX, toX, fromY, toY, y, bg), clearToEnd)
+		fmt.Println(t2.Draw(fromX, toX, fromY, toY, b, bg), clearToEnd)
+		fmt.Println(t3.Draw(fromX, toX, fromY, toY, r, bg), clearToEnd)
 
 		// Output the coordinates of the third triangle, as floats
 		shapes.FloatOutput = true
-		fmt.Println(t3.Points())
+		fmt.Println(t3.Points(), clearToEnd)
 
 		// Output the coordinates of the third triangle, as fractions
 		shapes.FloatOutput = false
-		fmt.Println(t3.Points())
+		fmt.Println(t3.Points(), clearToEnd)
 
 		// Wait a bit
 		time.Sleep(10 * time.Millisecond)
