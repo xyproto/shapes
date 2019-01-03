@@ -15,5 +15,5 @@ func ExampleNewPointf() {
 	p := NewPointf(1, 2)
 	fmt.Println(p)
 	// Output:
-	// (1, 2)
+	// (1.000, 2.000)
 }

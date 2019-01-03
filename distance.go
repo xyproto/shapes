@@ -11,12 +11,19 @@ var (
 
 // --- Length and distance ---
 
+// Returns the distance as an int
 func Distancei(a, b *Pointi) int {
 	return int(math.Sqrt(float64((a.x-b.x)*(a.x-b.x) + (a.y-b.y)*(a.y-b.y))))
 }
 
+// Returns the length as an int
 func (a *Pointi) Length() int {
 	return Distancei(Zeroi, a)
+}
+
+// Returns the length as an int
+func (a *Pointi) Distance(b *Pointi) int {
+	return Distancei(a, b)
 }
 
 func Distancef(a, b *Pointf) float64 {
@@ -25,6 +32,10 @@ func Distancef(a, b *Pointf) float64 {
 
 func (a *Pointf) Length() float64 {
 	return Distancef(Zerof, a)
+}
+
+func (a *Pointf) Distance(b *Pointf) float64 {
+	return Distancef(a, b)
 }
 
 // --- Normalization ---

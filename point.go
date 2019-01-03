@@ -2,6 +2,7 @@ package shapes
 
 import (
 	"errors"
+	"fmt"
 )
 
 // Addition, subtraction, multiplication and division for
@@ -199,4 +200,14 @@ func Newi(x int) *Pointi {
 
 func Newf(x float64) *Pointf {
 	return &Pointf{x, x}
+}
+
+// --- Strings ---
+
+func (p *Pointi) String() string {
+	return fmt.Sprintf("(%d, %d)", p.x, p.y)
+}
+
+func (p *Pointf) String() string {
+	return fmt.Sprintf("(%.3f, %.3f)", p.x, p.y)
 }
