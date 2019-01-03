@@ -27,10 +27,12 @@ const (
 	fromY = -4
 	toY   = 5
 
-	// Terminal codes
-	y  = "\033[1;93mo\033[0m"
-	b  = "\033[1;94m@\033[0m"
-	r  = "\033[1;31m#\033[0m"
+	// Terminal codes for the forground characters
+	y = "\033[1;93mo\033[0m"
+	b = "\033[1;94m@\033[0m"
+	r = "\033[1;31m#\033[0m"
+
+	// The background character
 	bg = " "
 )
 
@@ -67,7 +69,7 @@ func main() {
 		// Clear the terminal
 		clear()
 
-		// Draw three triangles, using ASCII graphics
+		// Draw three triangles, using ASCII graphics.
 		fmt.Println(t1.Draw(fromX, toX, fromY, toY, y, bg))
 		fmt.Println(t2.Draw(fromX, toX, fromY, toY, b, bg))
 		fmt.Println(t3.Draw(fromX, toX, fromY, toY, r, bg))

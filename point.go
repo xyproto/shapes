@@ -228,6 +228,9 @@ func (p *Point) RotateAround(c *Point, rad float64) *Point {
 	return NewPointf(px, py)
 }
 
-func (p *Point) CloseTo(x, y int) bool {
+func (p *Point) CloseTo(x, y int, rounded bool) bool {
+	if rounded {
+		return p.x.Round() == x && p.y.Round() == y
+	}
 	return p.x.Int() == x && p.y.Int() == y
 }

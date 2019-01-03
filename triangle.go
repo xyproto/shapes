@@ -111,6 +111,7 @@ func (t *Tri) RotateAround(rad float64, center *Point) *Tri {
 // Draw the triangle points, using ASCII graphics
 // fg and bg is the character to draw where the triangle point is,
 // and for the background. May contain terminal color codes.
+// Rounded is if the comparison should be with rounded ints, or truncated ints.
 func (t *Tri) Draw(fromx, tox, fromy, toy int, fg, bg string) string {
 	var sb strings.Builder
 	points := t.Points()
@@ -120,7 +121,7 @@ func (t *Tri) Draw(fromx, tox, fromy, toy int, fg, bg string) string {
 		}
 		for x := fromx; x < tox; x++ {
 			for _, p := range *points {
-				if p.CloseTo(x, y) {
+				if p.CloseTo(x, y, true) {
 					sb.WriteString(fg)
 				} else {
 					sb.WriteString(bg)
