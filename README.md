@@ -4,11 +4,7 @@ Deal with points and triangles.
 
 The goal is not performance, since all numbers are stored as fractions.
 
-However, it is easy to add a triangle and get the coordinates as human-readable fractions.
-
-It's also easy to rotate triangles.
-
-![screenshot](img/screenshot.png)
+It is possible to add a triangle and get the coordinates as human-readable fractions.
 
 Here is an example program:
 
@@ -85,6 +81,10 @@ func main() {
 	}
 }
 ```
+
+## Screenshot
+
+![screenshot](img/screenshot.png)
 
 ## General Info
 
