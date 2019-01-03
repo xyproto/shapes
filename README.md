@@ -6,7 +6,7 @@ The goal is not performance, since all numbers are stored as fractions.
 
 It is possible to add a triangle and get the coordinates as human-readable fractions.
 
-Here is an example program:
+Here is an example program, that animates three ASCII triangles and outputs coordinates as both floats and fractions:
 
 ```go
 package main
